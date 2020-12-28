@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 class BottomBar extends StatefulWidget {
+
+  static const routeName='/homepage';
+
   @override
   _BottomBarState createState() => _BottomBarState();
 }

@@ -1,8 +1,8 @@
 class NewsModel{
-  final String image;
-  final String title;
-  final String source;
-  final String summary;
+  String image;
+  String title;
+  String source;
+  String summary;
 
-  NewsModel(this.image,this.title,this.source,this.summary);
+  NewsModel({this.image,this.title,this.source,this.summary});
 }

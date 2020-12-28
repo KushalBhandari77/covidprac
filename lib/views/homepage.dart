@@ -11,6 +11,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       drawer: Container(
         child: NavigationBar(),
       ),
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       body: ReportBody(),
+
     );
   }
 }

@@ -1,7 +1,31 @@
-class SurveyModel{
-  bool answer1;
-  bool answer2;
-  bool answer3;
+class Questions {
+  final int number;
+  final String title;
+  final String subtitle;
+  final String question;
+  bool isYes;
 
-  SurveyModel({this.answer1,this.answer2,this.answer3});
+  Questions({this.number, this.title,this.subtitle, this.question, this.isYes = false});
+
 }
+
+List<Questions> questionList = [
+  Questions(
+      number: 1,
+      title: "Before we start",
+      subtitle: "Let's take a Survey",
+      question: "Do you have any problem while breathing from some days?"
+  ),
+  Questions(
+      number: 2,
+      title: "We are halfway",
+      subtitle: "Keep on answering",
+      question: "Do you have Fever?"
+  ),
+  Questions(
+      number: 3,
+      title: "Final one",
+      subtitle: "Thank you for answering",
+      question: "Do you have any problem while breathing from some days?"
+  ),
+];
