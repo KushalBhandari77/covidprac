@@ -11,15 +11,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       drawer: Container(
         child: NavigationBar(),
       ),
-      appBar: AppBar(title: Text("Hello Kushal"),
+      appBar: AppBar(
+        title: Text("Covid Application"),
         elevation: 0,
       ),
       body: ReportBody(),
-
     );
   }
 }

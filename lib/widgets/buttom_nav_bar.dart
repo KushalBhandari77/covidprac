@@ -6,20 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 class BottomBar extends StatefulWidget {
-
-  static const routeName='/homepage';
+  static const routeName = '/homepage';
 
   @override
   _BottomBarState createState() => _BottomBarState();
 }
 
 class _BottomBarState extends State<BottomBar> {
+  int _currentIndex = 0;
 
-  int _currentIndex=0;
-
-  List<Widget> _widgetOptions=<Widget>[
+  List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Stats(),
+    Statss(),
     News(),
     Hospitals(),
   ];
@@ -52,8 +50,14 @@ class _BottomBarState extends State<BottomBar> {
           items: <BubbleBottomBarItem>[
             BubbleBottomBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: Icon(Icons.record_voice_over,color: Theme.of(context).primaryColor,),
-                activeIcon: Icon(Icons.record_voice_over,color: Theme.of(context).primaryColor,),
+                icon: Icon(
+                  Icons.record_voice_over,
+                  color: Theme.of(context).primaryColor,
+                ),
+                activeIcon: Icon(
+                  Icons.record_voice_over,
+                  color: Theme.of(context).primaryColor,
+                ),
                 title: Text(
                   "Report",
                   style: TextStyle(
@@ -62,34 +66,52 @@ class _BottomBarState extends State<BottomBar> {
                 )),
             BubbleBottomBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: Icon(Icons.graphic_eq,color: Theme.of(context).primaryColor,),
-                activeIcon: Icon(Icons.graphic_eq,color: Theme.of(context).primaryColor,),                    title: Text(
-              "Stats",
-              style: TextStyle(
-                color: Theme.of(context).primaryColor,
-              ),
-            )),
-            BubbleBottomBarItem(
-                backgroundColor: Theme.of(context).primaryColor,
-                icon: Icon(Icons.message,color: Theme.of(context).primaryColor,),
-                activeIcon: Icon(Icons.message,color: Theme.of(context).primaryColor,),
+                icon: Icon(
+                  Icons.graphic_eq,
+                  color: Theme.of(context).primaryColor,
+                ),
+                activeIcon: Icon(
+                  Icons.graphic_eq,
+                  color: Theme.of(context).primaryColor,
+                ),
                 title: Text(
-                  "News",
+                  "Stats",
                   style: TextStyle(
-                    color:Theme.of(context).primaryColor ,
+                    color: Theme.of(context).primaryColor,
                   ),
                 )),
             BubbleBottomBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
-                icon: Icon(Icons.local_hospital,color: Theme.of(context).primaryColor,),
-                activeIcon: Icon(Icons.local_hospital,color: Theme.of(context).primaryColor,),
+                icon: Icon(
+                  Icons.message,
+                  color: Theme.of(context).primaryColor,
+                ),
+                activeIcon: Icon(
+                  Icons.message,
+                  color: Theme.of(context).primaryColor,
+                ),
+                title: Text(
+                  "News",
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                )),
+            BubbleBottomBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: Icon(
+                  Icons.local_hospital,
+                  color: Theme.of(context).primaryColor,
+                ),
+                activeIcon: Icon(
+                  Icons.local_hospital,
+                  color: Theme.of(context).primaryColor,
+                ),
                 title: Text(
                   "Hospitals",
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                   ),
                 )),
-
           ]),
     );
   }

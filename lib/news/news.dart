@@ -17,11 +17,12 @@ class _NewsState extends State<News> {
   bool isLoading = true;
 
   Future getLatestNews() async {
-    String url = "https://nepalcorona.info/api/v1/news";
+    String url = "https://corona.askbhunte.com/api/v1/news";
     var response = await http
         .get(Uri.encodeFull(url), headers: {'Accept': 'application/json'});
-   news = json.decode(response.body)['data'];
+    news = json.decode(response.body)['data'];
   }
+
   void initState() {
     super.initState();
     getLatestNews().then((value) {
@@ -34,14 +35,27 @@ class _NewsState extends State<News> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text("Covid ",style: TextStyle(color: Colors.black54),),
-          Text("News",style: TextStyle(color: Theme.of(context).primaryColor),),
-        ],
-      ),backgroundColor: Colors.white,centerTitle: true,elevation: 20,),
-      body: isLoading? Center(child: Loader()): SingleChildScrollView(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text(
+              "Covid ",
+              style: TextStyle(color: Colors.black54),
+            ),
+            Text(
+              "News",
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 20,
+      ),
+      body: isLoading
+          ? Center(child: Loader())
+          : SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   ListView.builder(
@@ -70,7 +84,9 @@ class _NewsState extends State<News> {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image: NetworkImage(
-                                              news[index]['image_url']),
+                                              news[index]['image_url'] == null
+                                                  ? Container()
+                                                  : news[index]['image_url']),
                                           fit: BoxFit.cover),
                                     ),
                                     width: 120,

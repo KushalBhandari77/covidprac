@@ -16,47 +16,29 @@ class NewsDetails extends StatelessWidget {
     final summary = routeargs['summary'];
 
     return Scaffold(
-      appBar: AppBar(title: Text(source,style: TextStyle(color: Theme.of(context).primaryColor),),backgroundColor: Colors.white,centerTitle: true,elevation: 50,),
+      appBar: AppBar(
+        title: Text(
+          source,
+        ),
+        centerTitle: true,
+        elevation: 50,
+      ),
       body: SingleChildScrollView(
         child: Column(children: [
-          Column(
-            children: <Widget>[
-              Image.network(image),
-              CustomText(text: title),
-              Text(source),
-              Text(summary),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Column(
+              children: <Widget>[
+                Image.network(image),
+                Text(
+                  title,
+                  style: TextStyle(fontSize: 18),
+                ),
+                Text(source),
+                Text(summary),
+              ],
+            ),
           ),
-          ListTile(
-            title: Text("Recommended For You"),
-          ),
-          ListView.builder(
-              shrinkWrap: true,
-              itemCount: routeargs.length,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: <Widget>[
-                        ListTile(
-                          leading: Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(image),
-                                  fit: BoxFit.cover),
-                            ),
-                            width: 120,
-                          ),
-                          title: CustomText(text: title),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }),
         ]),
       ),
     );
